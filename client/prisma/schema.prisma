@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String       @id @unique @default(uuid())
+  email      String       @unique
+  username   String       @unique
+  password   String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  History    History[]
+  Loan       Loan[]
+  Reserve    Reserve[]
+  Repository Repository[]
+  Report     Report[]
+}
+
+model History {
+  id     String   @id @default(uuid())
+  action String
+  date   DateTime @default(now())
+  userId String
+  user   User     @relation(fields: [userId], references: [id])
+}
+
+model Resource {
+  id        String    @id @default(uuid())
+  type      String
+  title     String
+  author    String?
+  category  String
+  state     String
+  location  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  loans     Loan[]
+  reserves  Reserve[]
+}
+
+model Loan {
+  id         String   @id @default(uuid())
+  startTime  DateTime
+  endTime    DateTime
+  state      String
+  userId     String
+  resourceId String
+  user       User     @relation(fields: [userId], references: [id])
+  resource   Resource @relation(fields: [resourceId], references: [id])
+}
+
+model Space {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  capacity    Int
+  state       String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  reserves    Reserve[]
+}
+
+model Reserve {
+  id          String    @id @default(uuid())
+  reserveDate DateTime
+  startTime   DateTime
+  endTime     DateTime
+  state       String
+  userId      String
+  spaceId     String?
+  resourceId  String?
+  user        User      @relation(fields: [userId], references: [id])
+  space       Space?    @relation(fields: [spaceId], references: [id])
+  resource    Resource? @relation(fields: [resourceId], references: [id])
+}
+
+model Repository {
+  id          String   @id @default(uuid())
+  title       String
+  author      String
+  description String
+  category    String
+  file        String
+  upDate      DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model Report {
+  id            String   @id @default(uuid())
+  type          String
+  content       Json
+  generatedDate DateTime @default(now())
+  generatedUser String
+  user          User     @relation(fields: [generatedUser], references: [id])
+}

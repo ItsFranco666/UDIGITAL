@@ -1,0 +1,129 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #444;
+}
+
+/* Main Container */
+.account-main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Aside Styles */
+.account-aside {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    background-color: #f0f4f8;
+    border-right: 1px solid #d1d5db;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.account-aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-aside li {
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    border-radius: 8px;
+}
+
+.account-aside li:hover {
+    background-color: #d1e9ff;
+    color: #004a8d;
+    font-weight: bold;
+}
+
+.account-aside li + li {
+    margin-top: 10px;
+}
+
+/* Form Styles */
+.account-general-container {
+    flex: 2;
+    padding: 20px;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.form-group input {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    transition: all ease 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #004a8d;
+    box-shadow: 0 0 4px rgba(0, 74, 141, 0.3);
+}
+
+.error {
+    color: #e63946;
+    font-size: 0.85rem;
+}
+
+.btn-save {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all ease 300ms;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 8px rgba(0, 91, 179, 0.3);
+}
+
+.btn-save:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 91, 179, 0.5);
+}

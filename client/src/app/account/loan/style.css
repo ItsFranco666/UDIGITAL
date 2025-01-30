@@ -1,0 +1,43 @@
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado entre botones */
+}
+
+.buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    color: white;
+}
+
+.cancel {
+    background-color: #ef4444; /* Rojo */
+}
+
+.cancel:hover {
+    background-color: #dc2626;
+}
+
+.renew {
+    background-color: #3b82f6; /* Azul */
+}
+
+.renew:hover {
+    background-color: #2563eb;
+}
+
+.return {
+    background-color: #22c55e; /* Verde */
+}
+
+.return:hover {
+    background-color: #16a34a;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+}

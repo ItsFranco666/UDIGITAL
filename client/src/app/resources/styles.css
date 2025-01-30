@@ -1,0 +1,281 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    /* Más espacio */
+    margin: 1.5rem;
+    /* Márgenes externos para separar la sección */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filters input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.select {
+    width: 100%;
+}
+
+.select select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sorts {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.sorts button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sorts button.active,
+.sorts button:hover {
+    background: #0056b3;
+}
+
+.session {
+    background: #28a745 !important;
+}
+
+.active.session,
+.session:hover {
+    background: #1e7e35 !important;
+}
+
+.collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    /* Más espacio entre artículos */
+    margin: 1.5rem;
+}
+
+.collection article {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.collection h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.pag {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    width: 80%;
+}
+
+.pag button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pag button:hover {
+    background: #0056b3;
+}
+
+.pag button.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.pag button.active {
+    background: #0056b3;
+    font-weight: bold;
+}
+
+.select-row {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.resource-title {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+dialog {
+    width: 400px;
+    max-width: 90%;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    animation: fadeIn 0.3s ease-out;
+    margin: auto;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+dialog h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+dialog p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+dialog button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+dialog button:hover {
+    background-color: #45a049;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.btn-reserve {
+    height: 2rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 100px;
+    color: #fff;
+}
+
+button.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #555;
+    padding: 5px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button.close-modal:hover {
+    color: #fff;
+    background-color: #da2c2c;
+    transform: scale(1.1);
+}
+
+button.close-modal:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos del título */
+.title-form {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilos del formulario */
+.form-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-dialog label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    text-align: left;
+}
+
+/* Estilos de los inputs */
+.form-dialog input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-dialog input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Estilos del botón de enviar */
+.form-dialog input[type="submit"] {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-dialog input[type="submit"]:hover {
+    background: #45a049;
+}
+
+.error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    font-weight: 500;
+}

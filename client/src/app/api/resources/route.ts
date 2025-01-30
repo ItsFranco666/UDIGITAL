@@ -1,9 +1,12 @@
 import prisma from "@/config/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+    const { query } = await req.json()
+    const resources = await prisma.resource.findMany(query)
+    return NextResponse.json(resources, { status: 200 })
+}
 
 export async function GET() {
-    const session = await getServerSession(authOptions)
-    return NextResponse.json({ message: 'test' }, { status: 200 })
+    return NextResponse.json((await prisma.resource.findMany()).length, { status: 200 })
 }

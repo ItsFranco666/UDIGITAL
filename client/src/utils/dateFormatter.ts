@@ -7,9 +7,6 @@ export default function (date: Date) {
         minute: '2-digit',
         hour12: true
     }).replace(' a. m.', 'am').replace(' p. m.', 'pm');
-<<<<<<< Updated upstream
-};
-=======
 }
 
 export function formatDate(isoString: string): string {
@@ -35,4 +32,3 @@ export function formatTime(dateInput: Date | string): string {
 
     return `${hours}:${minutes} ${ampm}`;
 }
->>>>>>> Stashed changes

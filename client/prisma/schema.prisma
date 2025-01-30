@@ -36,26 +36,46 @@ model History {
 }
 
 model Resource {
-  id        String    @id @default(uuid())
-  type      String
-  title     String
-  author    String?
-  category  String
-  state     String
-  location  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  loans     Loan[]
-  reserves  Reserve[]
+  id           String    @id @default(uuid())
+  title        String
+  author       String?
+  typeId       String
+  Type         Type      @relation(fields: [typeId], references: [name])
+  stateId      String
+  State        State     @relation(fields: [stateId], references: [name])
+  locationName String
+  Location     Location  @relation(fields: [locationName], references: [name])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  loans        Loan[]
+  reserves     Reserve[]
+}
+
+model Location {
+  name     String     @id @unique
+  Resource Resource[]
+}
+
+model Type {
+  name     String     @id @unique
+  Resource Resource[]
+}
+
+model State {
+  name     String     @id @unique
+  Resource Resource[]
+  Loan     Loan[]
+  Reserve  Reserve[]
 }
 
 model Loan {
   id         String   @id @default(uuid())
   startTime  DateTime
   endTime    DateTime
-  state      String
+  stateName  String
   userId     String
   resourceId String
+  State      State    @relation(fields: [stateName], references: [name])
   user       User     @relation(fields: [userId], references: [id])
   resource   Resource @relation(fields: [resourceId], references: [id])
 }
@@ -72,17 +92,20 @@ model Space {
 }
 
 model Reserve {
-  id          String    @id @default(uuid())
-  reserveDate DateTime
-  startTime   DateTime
-  endTime     DateTime
-  state       String
-  userId      String
-  spaceId     String?
-  resourceId  String?
-  user        User      @relation(fields: [userId], references: [id])
-  space       Space?    @relation(fields: [spaceId], references: [id])
-  resource    Resource? @relation(fields: [resourceId], references: [id])
+  id             String    @id @default(uuid())
+  type           String
+  reserveDate    DateTime
+  expirationDate DateTime
+  startTime      DateTime
+  endTime        DateTime
+  stateName      String
+  userId         String
+  spaceId        String?
+  resourceId     String?
+  State          State     @relation(fields: [stateName], references: [name])
+  user           User      @relation(fields: [userId], references: [id])
+  space          Space?    @relation(fields: [spaceId], references: [id])
+  resource       Resource? @relation(fields: [resourceId], references: [id])
 }
 
 model Repository {

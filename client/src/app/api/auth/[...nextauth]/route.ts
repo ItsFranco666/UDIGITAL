@@ -19,7 +19,11 @@ export const authOptions = {
                 })
 
                 if (!userFound) throw new Error('User not found')
+<<<<<<< Updated upstream
                  
+=======
+
+>>>>>>> Stashed changes
                 const matchPassword = await bcrypt.compare(credentials?.password as string, userFound.password)
 
                 if (!matchPassword) throw new Error('Password incorrect')
@@ -35,7 +39,11 @@ export const authOptions = {
     pages: {
         signIn: '/auth/login',
         signOut: '/auth/logout'
+<<<<<<< Updated upstream
     }
+=======
+    },
+>>>>>>> Stashed changes
 }
 
 const handler = NextAuth(authOptions)

@@ -1,0 +1,67 @@
+.reservesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservesTable thead {
+    background-color: #4CAF50;
+    color: #ffffff;
+}
+
+.reservesTable th, .reservesTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.reservesTable tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.reservesTable tbody tr:hover {
+    background-color: #e3fdee;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.reserve-message {
+    color: #d9534f;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+button {
+    background-color: #d9534f;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #c9302c;
+}
+
+/* Diseño responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .reservesTable {
+        font-size: 14px;
+    }
+    
+    .reservesTable th, .reservesTable td {
+        padding: 10px;
+    }
+    
+    button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}

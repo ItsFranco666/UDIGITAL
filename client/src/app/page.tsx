@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './style.css'
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
       <section className="hero">
         <h2>Bienvenido a UDigital</h2>
         <p>Accede fácilmente a todos los recursos digitales de tu universidad.</p>
-        <a href="#" className="cta">Explorar Recursos</a>
+        <Link href="/resources" className="cta">Explorar Recursos</Link>
       </section>
 
       <section className="features">

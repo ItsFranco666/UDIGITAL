@@ -13,7 +13,12 @@ export async function GET() {
             select: {
                 createdAt: true,
                 email: true,
+<<<<<<< Updated upstream
                 username: true
+=======
+                username: true,
+                id: true
+>>>>>>> Stashed changes
             }
         })
     }, { status: 200 })
